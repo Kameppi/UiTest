@@ -25,7 +25,7 @@ public class SoundEditor : MonoBehaviour
     public class EnemyAttackTime
     {
         public ATTACKTYPE attackType;   //敵の攻撃の種類
-        public float musicScore;        //攻撃を出す時間
+        [HideInInspector]public float musicScore;        //攻撃を出す時間
     }
     public List<EnemyAttackTime> timeList = new List<EnemyAttackTime>();
 
