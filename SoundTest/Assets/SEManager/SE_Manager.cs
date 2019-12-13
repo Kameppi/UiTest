@@ -6,6 +6,9 @@ public class SE_Manager : MonoBehaviour
 {
     AudioSource[] seArr;
 
+    /// <summary>
+    /// SEの種類名
+    /// </summary>
     public enum SE_NAME
     {
         FootR, FootL, FootLR,
