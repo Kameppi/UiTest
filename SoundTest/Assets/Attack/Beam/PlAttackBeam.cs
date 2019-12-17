@@ -29,7 +29,7 @@ public class PlAttackBeam : MonoBehaviour
             }
         }
 
-        foreach(GameObject obj in beamObjList)
+        foreach (GameObject obj in beamObjList)
         {
             Vector3 pos = obj.transform.position;
             pos = Vector3.MoveTowards(pos, targetObj.transform.position, speed * Time.deltaTime);
@@ -40,14 +40,9 @@ public class PlAttackBeam : MonoBehaviour
         if (beamObjList.Count != 0)
         {
             float dis = Vector3.Distance(beamObjList[0].transform.position, targetObj.transform.position);
-            if (1f > dis)
+            if (0.3f > dis)
             {
-                ParticleSystem par = beamObjList[0].transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-                if (!par.isEmitting)
-                {
-                    Destroy(beamObjList[0]);
-                    beamObjList.RemoveAt(0);
-                }
+                beamObjList.RemoveAt(0);
             }
         }
     }
