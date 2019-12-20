@@ -40,47 +40,84 @@ public class MouseStatus : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = new Ray();
-            RaycastHit hit = new RaycastHit();
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            LeftClick();
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            RightClick();
+        }
+    }
 
-            //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+    void LeftClick()
+    {
+        Ray ray = new Ray();
+        RaycastHit hit = new RaycastHit();
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+        {
+            GameObject obj = hit.collider.gameObject;
+
+            //クリックしたものによって受け渡すデータを変える
+            switch (obj.tag)
             {
-                GameObject obj = hit.collider.gameObject;
+                case "EnemyMode":
+                    GetEnemyAttackType = obj.GetComponent<EnemyModeObj>().enemyModeType;
+                    GetEnemyMaterial = obj.GetComponent<Renderer>().material;
+                    GetEnemyModePos = obj.transform.position;
+                    break;
 
-                //クリックしたものによって受け渡すデータを変える
-                switch (obj.tag)
-                {
-                    case "EnemyMode":
-                        GetEnemyAttackType = obj.GetComponent<EnemyModeObj>().enemyModeType;
-                        GetEnemyMaterial = obj.GetComponent<Renderer>().material;
-                        GetEnemyModePos = obj.transform.position;
-                        break;
+                case "PlMode":
+                    GetPlStepTiming = obj.GetComponent<PlModeObj>().plModeType;
+                    GetPlMaterial = obj.GetComponent<Renderer>().material;
 
-                    case "PlMode":
-                        GetPlStepTiming = obj.GetComponent<PlModeObj>().plModeType;
-                        GetPlMaterial = obj.GetComponent<Renderer>().material;
+                    GetPlModePos = obj.transform.position;
+                    break;
 
-                        GetPlModePos = obj.transform.position;
-                        break;
+                case "ScoreObjBool":
+                    obj.GetComponent<ScoreObjBool>().onClick = true;
+                    break;
 
-                    case "ScoreObjBool":
-                        obj.GetComponent<ScoreObjBool>().onClick = true;
-                        break;
+                case "ScoreObjEnemy":
+                    obj.GetComponent<ScoreObjEnemy>().onClick = true;
+                    break;
 
-                    case "ScoreObjEnemy":
-                        obj.GetComponent<ScoreObjEnemy>().onClick = true;
-                        break;
+                case "ScoreObjPl":
+                    obj.GetComponent<ScoreObjPl>().onClick = true;
+                    break;
 
-                    case "ScoreObjPl":
-                        obj.GetComponent<ScoreObjPl>().onClick = true;
-                        break;
-
-                    default:break;
-                }
+                default: break;
             }
         }
     }
 
+    void RightClick()
+    {
+        Ray ray = new Ray();
+        RaycastHit hit = new RaycastHit();
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
+        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+        {
+            GameObject obj = hit.collider.gameObject;
+
+            //クリックしたものによって受け渡すデータを変える
+            switch (obj.tag)
+            {
+                case "ScoreObjEnemy":
+                    obj.GetComponent<ScoreObjEnemy>().enemyAttackType = StepData.ENEMY_ATTACK_TYPE.Nothing;
+                    obj.GetComponent<Renderer>().material = enemyModeDefault.GetComponent<Renderer>().material;
+                    break;
+
+                case "ScoreObjPl":
+                    obj.GetComponent<ScoreObjPl>().plStepTiming = StepData.PL_STEP_TIMING.Nothing;
+                    obj.GetComponent<Renderer>().material = plModeDefault.GetComponent<Renderer>().material;
+                    break;
+
+                default: break;
+            }
+        }
+    }
 }
