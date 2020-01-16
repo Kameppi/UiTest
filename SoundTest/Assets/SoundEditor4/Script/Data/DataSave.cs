@@ -13,6 +13,8 @@ public class DataSave : MonoBehaviour
     public int beat = 16;       //1小節の刻む数
     public int tempo = 120;     //BMP
 
+    public StepData stepDataScript;
+
     float barTime;
 
     //胆略か用
@@ -25,6 +27,17 @@ public class DataSave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        switch (stepDataScript.scoreName)
+        {
+            case "Easy": tempo = 120; break;
+            case "Hard": tempo = 120; break;
+            case "Dub_Easy": tempo = 160; break;
+            case "Dub_Hard": tempo = 160; break;
+            case "ForbiddenFruit_Easy": tempo = 128; break;
+            case "ForbiddenFruit_Hard": tempo = 128; break;
+            default: break;
+        }
+
         barTime = 60 * (float)bar * 1 / (float)tempo;
         barTime = barTime / beat;
         int count = 0;

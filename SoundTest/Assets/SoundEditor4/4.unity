@@ -599,8 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb16d1ecb3f3937498b02e750c1e6ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreName: aaa
-  fileName: Assets/SoundEditor2/Score/
+  scoreName: ForbiddenFruit_Easy
+  fileName: Assets/SoundEditor4/Score/
   source: {fileID: 575480836}
   stepData: []
 --- !u!82 &575480836
@@ -613,7 +613,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 43a1c820288b10447a555bbd35a166b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30068bac70d03fd46a1a6771f0e47166, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1511,6 +1511,7 @@ MonoBehaviour:
   bar: 4
   beat: 16
   tempo: 120
+  stepDataScript: {fileID: 575480835}
   dataList: []
 --- !u!114 &1126983527
 MonoBehaviour:
