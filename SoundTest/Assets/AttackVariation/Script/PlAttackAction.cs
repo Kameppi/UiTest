@@ -53,7 +53,7 @@ public class PlAttackAction : MonoBehaviour
     void Start()
     {
         //生成時に剣の生成数を決める
-        RSP.swordCount = rollSwordCount;
+        //RSP.swordCount = rollSwordCount;
     }
 
     // Update is called once per frame

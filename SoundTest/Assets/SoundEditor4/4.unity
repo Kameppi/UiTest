@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb16d1ecb3f3937498b02e750c1e6ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreName: ForbiddenFruit_Easy
+  scoreName: Dub_Hard
   fileName: Assets/SoundEditor4/Score/
   source: {fileID: 575480836}
   stepData: []
@@ -613,7 +613,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 30068bac70d03fd46a1a6771f0e47166, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5bc18cfdf32be8c4da592927a5db2c10, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
