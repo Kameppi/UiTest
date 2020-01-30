@@ -1510,7 +1510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: 4
   beat: 16
-  tempo: 120
+  tempo: 160
   stepDataScript: {fileID: 575480835}
   dataList: []
 --- !u!114 &1126983527
